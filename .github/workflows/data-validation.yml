@@ -1,0 +1,20 @@
+name: Data Validation Check
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '_data/*.yaml'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install YAMLLint
+        run: sudo apt-get install yamllint
+      - name: Run validation on data files
+        run: yamllint _data/*.yaml
+
+مصدر مركزي لتنظيم الروابط الإعلانية، الحملات الدعائية، وملفات العمل المشترك مع الشركاء
